@@ -1,0 +1,19 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+  database:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: yea
+      POSTGRES_USER: okay
+      POSTGRES_DB: prismatutorial
+    ports:
+      - 5432:5432
+    volumes:
+      - prismatutorial:/var/lib/postgresql/data/
+    healthcheck:
+      test: "exit 0"
+
+volumes:
+  prismatutorial:
